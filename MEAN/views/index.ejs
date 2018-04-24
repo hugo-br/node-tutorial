@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="testApp">
+<head>
+<title>MEAN Tutorial</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-controller="myCtrlb as vm">
+
+<h1>{{  vm.message }}</h1>
+<p>This is a paragraph.</p>
+<input type="text" ng-model="vm.message"/>
+
+<ul>
+  <li ng-repeat="person in vm.people | orderBy:'name'">
+    {{ person.name }}
+  </li>
+</ul>
+
+
+
+<!-- combining server script with client -->
+<script> var clientPeople = <%- JSON.stringify(severPeople) %>;</script>
+<script src="/assets/js/app.js"></script>
+
+</body>
+</html>
